@@ -1,0 +1,118 @@
+mixin menuLink(title, href ="#")
+	li.header-item 
+		a.header-link(href= href)=title 
+
+mixin headerBottom(number, title)
+	.header-bottom-item
+		span.header-bottom-number=number
+		span.header-bottom-text=title
+	
+mixin blockbox(caption, title, desc)
+	.block-box
+		h3.block-box-caption= caption 
+		h2.block-box-heading=title
+		if desc 
+			p.block-box-desc=desc
+
+
+mixin aboutItem(data)
+	.about-item 
+		img.about-img(src= data.src, alt= data.alt)
+		.about-content 
+			i.about-icon(class= data.iconClass)
+			span.about-title= data.title
+
+mixin serviceItem(src,title,desc,alt="")
+	.service-item 
+		img.service-item-img(src=src alt=alt)
+		.service-item-info
+			h3.service-item-title= title 
+			p.service-item-desc= desc
+
+
+mixin wedoItem(src,title,desc,active= "", alt="")
+	.wedo-item(class=active)
+		.wedo-item-header
+			img.wedo-item-img(src=src, alt=alt)
+			h3.wedo-item-title=title
+			i.fal.fa-angle-up.wedo-item-arrow
+		.wedo-item-content
+			.wedo-item-text=desc
+
+mixin teamSocial(facebook="#",twitter="#",pinterest="#",instagram="#")
+	ul.team-social 
+		li.team-social-item
+			a.team-social-link(href= facebook)
+				i.fab.fa-facebook-f
+		li.team-social-item
+			a.team-social-link(href= twitter)
+				i.fab.fa-twitter
+		li.team-social-item
+			a.team-social-link(href= pinterest)
+				i.fab.fa-pinterest
+		li.team-social-item
+			a.team-social-link(href= instagram)
+				i.fab.fa-instagram
+
+mixin teamItem(src="../images/img-team1.png", name="Duong Hung", text="Fronted Developer", alt="") 
+	.team-item
+		.team-main
+			img.team-img(src=src alt= alt)
+			.team-content 
+				if block 
+					block
+				
+		.team-info 
+			h4.team-name= name
+			span.team-text= text
+
+
+mixin workItem(src="../images/img-work1.png",icon="fa fa-home",title="Photographer Super",desc="Lorem ipsum dolor sit", full="")
+	.work-item(class=full)
+		img.work-img(src=src)
+		.work-content 
+			i.fa.fa-home.work-icon(class=icon) 
+			h3.work-title=title
+			span.work-desc.text.text-light=desc
+
+
+mixin peopleItem(src,name,job,desc,alt="")
+	li.people-item 
+		img.people-img(src=src, alt=alt)
+		.people-info
+			h3.people-info-name=name
+			span.people-info-job=job
+			if desc
+				p.people-info-desc=desc
+
+
+mixin storyItem(src="../images/img-blog1.png", number= 15, textDate="Jan",title="LOREM IPSUM DOLOR, SIT AMET CONSECTETUR ADIPISICING ELIT. SEQUI, FACERE.",desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nihil possimus id repellendus modi saepe eos ratione, doloribus soluta beatae esse qui et, sit earum quam ",views = 1000, comments= 1000,alt="")
+		li.story-item 
+			.story-media 
+				img.story-img(src=src, alt=alt)
+				.story-date 
+					span.story-date-number=number
+					span.story-date-text.text.text--light=textDate
+			h3.story-title=title
+			.story-desc.text.text--light 
+				p.story-desc-inner=desc
+			.story-meta 
+				.story-meta-item
+					i.fa.fa-eye.story-meta-icon
+					span.story-meta-text.text=views
+				.story-meta-item
+					i.fa.fa-comment.story-meta-icon
+					span.story-meta-text.text=comments
+
+
+
+mixin quoteItem(src,type=false,desc,author,alt="")
+	.quote-content
+		if type === false
+			.quote-icon
+				img(src= src, alt=alt)
+		else
+				img(src= src, alt=alt).quote-img
+		.quote-info 
+			p.quote-desc= desc
+			span.quote-author=author

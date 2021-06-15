@@ -1,0 +1,115 @@
+.quote{
+	background-color: $gray-color;
+	padding: 6.5rem 0;
+	// margin-bottom: 5rem;
+	// &-container{
+	// 	// display: flex;
+	// 	// justify-content: space-between;
+	// 	// align-items: center;
+	// }
+	// &-content{
+	// 	display: flex
+	// }
+	&-arrow{
+		color: $gray-dark-color;
+		cursor: pointer;
+		font-size: 2.0rem;
+		padding: 1rem 2rem;
+	}
+	&-content{
+		padding-left: 5.5rem;
+		padding-right: 5.5rem;
+		@include flexBox(center,center)
+	}
+	&-icon{
+		@include size(15rem,15rem);
+		@include flexBox(center,center);
+		border: 3px solid $third-color;
+		flex-shrink: 0;
+		margin-right: 6rem;
+	}
+	// &-info{
+	// 	padding-left: 6rem;	
+	// }
+	&-desc{
+		font-size: 2.5rem;
+		font-weight: 300;
+		line-height: 1.6;
+		font-family: $secondary-font;
+		margin-bottom: 2.5rem;
+		font-style: italic;
+		color: $text-color;
+		@include textCamp(3);
+
+	}
+	&-author{
+		font-family: $third-font;
+		font-size: 2.4rem;
+		position: relative;
+		padding-left: 7rem;
+	}
+	&-author::after{
+		content: "";
+		@include size(6rem,4px);
+		@include absoluteCenter("top");
+		left: 0;
+		background-color: $primary-color;
+	}
+	&-img{
+		margin-right: 2.5rem;
+
+	}
+
+
+	///slick slider
+	.slick-initialized .slick-slide{
+		display: flex;
+	}
+	.slick-arrow{
+		background-color: transparent;
+		border: 0;
+		color: $gray-dark-color;
+		cursor: pointer;
+		font-size: 2.0rem;
+		padding: 1rem 2rem;
+		@include absoluteCenter("top");
+		z-index: 10;
+	}
+	.slick-prev{
+		left: 0;
+	}
+	.slick-next{
+		right:0;
+	}
+
+
+	@include maxWidth(767px){
+		&-arrow{
+			display: none;
+		}
+		&-content{
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+		}
+		&-icon{
+			@include size(10rem,10rem);
+			margin-right: 0;
+			img{
+				max-width: 50%;
+			}
+			margin-bottom: 3rem;
+
+		}
+		&-info{
+			padding-left: 0;
+		}
+		&-desc{
+			display: block;
+			font-size: 1.6rem;
+		}
+		&-author{
+			font-size: 2rem;
+		}
+	}
+}

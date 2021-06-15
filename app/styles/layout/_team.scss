@@ -1,0 +1,69 @@
+.team{
+	padding-bottom: 10rem;
+	&-info{
+		padding: 3rem 1.5rem;
+		text-align: center;
+
+	}
+
+	&-list{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 3rem ;
+	}
+	// &-item{
+	// 	width: calc(33.33% - 2rem);
+	// }
+	&-name{
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		font-weight: 500;
+		@include textCamp(1);
+	}
+	&-text{
+		font-size: 1.5rem;
+		font-weight: 300;
+		color:#999999;
+		font-style: italic;
+		font-family:$secondary-font;
+		line-height: 2;
+	}
+	&-social{
+		@include flexBox(center,center)
+	}
+	&-social-item:not(:first-child){
+		border-left: 1px solid $primary-color
+	}
+	&-social-link{
+		@include flexBox(center, center);
+		@include size(6rem,6rem);
+		color: $primary-color;
+		font-size: 1.5rem;
+		background-color: $secondary-color;
+		transition: all 0.2s linear;
+		&:hover{
+			color: white;
+			background-color: $primary-color
+		}
+	}
+	@include maxWidth(1023px){
+		padding: 0;
+		&-list{
+			@include touchSlider(50%);
+		}
+	}
+	@include maxWidth(767px){
+		padding: 0;
+		&-list{
+			@include touchSlider(90%);
+		}
+	}
+}
+.brand{
+	padding: 8rem 0;
+	background-color: #F8F8F8;
+	@include maxWidth(767px){
+		padding: 3rem
+	}
+}
+@include hoverEffect(".team-main",".team-content");
